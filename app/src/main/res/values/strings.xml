@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dog Breeds</string>
+    <string name="dog_breed_screen_title">Dog Breeds</string>
+    <string name="breed_description_screen_title">Breed description</string>
+    <string name="dog_name_in_card">Dog Name</string>
+    <string name="dog_description_in_card">Dog description goes here...</string>
+</resources>
