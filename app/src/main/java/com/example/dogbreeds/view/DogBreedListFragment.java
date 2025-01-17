@@ -1,4 +1,4 @@
-package com.example.dogbreeds;
+package com.example.dogbreeds.view;
 
 
 import android.os.Bundle;
@@ -11,6 +11,12 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.dogbreeds.adapter.DogBreedAdapter;
+import com.example.dogbreeds.presenter.DogViewListPresenter;
+import com.example.dogbreeds.R;
+import com.example.dogbreeds.model.DogBreed;
+import com.example.dogbreeds.model.DogBreedModel;
 
 import java.util.List;
 

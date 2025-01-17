@@ -1,4 +1,4 @@
-package com.example.dogbreeds;
+package com.example.dogbreeds.model;
 
 import com.google.gson.annotations.SerializedName;
 

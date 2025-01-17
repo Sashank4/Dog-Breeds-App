@@ -1,4 +1,7 @@
-package com.example.dogbreeds;
+package com.example.dogbreeds.presenter;
+
+import com.example.dogbreeds.model.DogBreed;
+import com.example.dogbreeds.view.DogBreedDetailView;
 
 public class DogBreedDetailPresenter {
     private final DogBreedDetailView view;

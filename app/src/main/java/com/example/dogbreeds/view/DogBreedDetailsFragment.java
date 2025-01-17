@@ -1,4 +1,4 @@
-package com.example.dogbreeds;
+package com.example.dogbreeds.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.dogbreeds.presenter.DogBreedDetailPresenter;
+import com.example.dogbreeds.R;
+import com.example.dogbreeds.model.DogBreed;
 
 public class DogBreedDetailsFragment extends Fragment implements DogBreedDetailView {
     private ImageView imageView;

@@ -1,4 +1,4 @@
-package com.example.dogbreeds;
+package com.example.dogbreeds.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.dogbreeds.R;
+import com.example.dogbreeds.model.DogBreed;
 
 import java.util.List;
 

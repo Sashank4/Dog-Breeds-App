@@ -1,4 +1,8 @@
-package com.example.dogbreeds;
+package com.example.dogbreeds.presenter;
+
+import com.example.dogbreeds.model.DogBreed;
+import com.example.dogbreeds.model.DogBreedModel;
+import com.example.dogbreeds.view.DogBreedListView;
 
 import java.util.List;
 

@@ -1,8 +1,10 @@
-package com.example.dogbreeds;
+package com.example.dogbreeds.view;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.dogbreeds.R;
 
 public class DogBreedsActivity extends AppCompatActivity {
 
