@@ -1,5 +1,7 @@
 package com.example.dogbreeds.presenter;
 
+import android.util.Log;
+
 import com.example.dogbreeds.model.DogBreed;
 import com.example.dogbreeds.model.DogBreedModel;
 import com.example.dogbreeds.view.DogBreedListView;

@@ -7,7 +7,13 @@ import java.io.Serializable;
 public class DogBreed implements Serializable {
 
 
-    private int id;
+    @SerializedName("life_span")
+    private String lifeSpan;
+    @SerializedName("breed_group")
+    private String breedGroup;
+    @SerializedName("bred_for")
+    private String breedFor;
+
     @SerializedName("name")
     private String name;
     @SerializedName("temperament")
@@ -20,10 +26,19 @@ public class DogBreed implements Serializable {
     public String getTemperament(){
         return temperament;
     }
-    public int getId() {
-        return id;
-    }
     public String getImage() {
         return image;
+
+    }
+    public String getLifeSpan() {
+        return lifeSpan;
+    }
+
+    public String getBreedGroup() {
+        return breedGroup;
+    }
+
+    public String getBreedFor() {
+        return breedFor;
     }
 }

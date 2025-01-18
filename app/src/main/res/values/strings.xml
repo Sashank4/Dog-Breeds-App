@@ -4,4 +4,12 @@
     <string name="breed_description_screen_title">Breed description</string>
     <string name="dog_name_in_card">Dog Name</string>
     <string name="dog_description_in_card">Dog description goes here...</string>
+    <string name="error_test_view">Please verify your internet connection</string>
+    <string name="try_again_cta_text">Try Again</string>
+    <string name="dog_name">Dog Name</string>
+    <string name="dog_breed_group">Breed Group</string>
+    <string name="dog_bred_for">Breed For</string>
+    <string name="dog_origin">Origin</string>
+    <string name="dog_temparment">Temparment</string>
+    <string name="dog_life_span">Life Span</string>
 </resources>

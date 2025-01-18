@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/show_dog_breeds_toolbar"
+        android:id="@+id/dog_breed_details_toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -18,86 +18,99 @@
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@color/white" />
 
-    <ImageView
-        android:id="@+id/imageViewDog"
-        android:layout_width="231dp"
-        android:layout_height="227dp"
-        android:layout_marginTop="28dp"
-        android:contentDescription="@string/dog_name_in_card"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_foreground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/show_dog_breeds_toolbar" />
-
-    <!-- Dog Name -->
-
-    <!-- Breed Group -->
-
     <TextView
         android:id="@+id/textViewName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:paddingTop="8dp"
-        android:text="Affenpinscher"
+        android:text="@string/dog_name"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewDog" />
+        app:layout_constraintTop_toBottomOf="@+id/dog_breed_details_toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imageViewCard"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/dog_name_in_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName"
+        app:cardElevation="4dp">
+        <ImageView
+            android:id="@+id/imageViewDog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/dog_name_in_card"
+            android:src="@drawable/ic_launcher_foreground"
+            android:scaleType="centerCrop"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Dog Name -->
+
+    <!-- Bred For -->
+    <TextView
+        android:id="@+id/textViewBreedFor"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/dog_bred_for"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textViewBreedGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Breed Group: Toy"
+        android:text="@string/dog_breed_group"
         android:textSize="16sp"
         android:paddingTop="4dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBreedFor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Bred For -->
-    <TextView
-        android:id="@+id/textViewBredFor"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Bred For: Small rodent hunting, lapdog"
-        android:textSize="16sp"
-        android:paddingTop="4dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewBreedGroup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Origin -->
+
+    <!-- Origin
     <TextView
         android:id="@+id/textViewOrigin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Origin: Germany, France"
+        android:text="@string/dog_origin"
         android:textSize="16sp"
         android:paddingTop="4dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewBredFor"
+        app:layout_constraintTop_toBottomOf="@id/textViewBreedFor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" /> -->
 
     <!-- Temperament -->
     <TextView
         android:id="@+id/textViewTemperament"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Temperament: Stubborn, Curious, Playful, Adventurous, Active, Fun-loving"
+        android:text="@string/dog_temparment"
         android:textSize="16sp"
         android:paddingTop="4dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewOrigin"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBreedGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Height -->
+    <!-- Height
     <TextView
         android:id="@+id/textViewHeight"
         android:layout_width="0dp"
@@ -109,7 +122,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Weight -->
+    Weight
     <TextView
         android:id="@+id/textViewWeight"
         android:layout_width="0dp"
@@ -119,17 +132,17 @@
         android:paddingTop="4dp"
         app:layout_constraintTop_toBottomOf="@id/textViewHeight"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" /> -->
 
     <!-- Life Span -->
     <TextView
         android:id="@+id/textViewLifeSpan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Life Span: 10 - 12 years"
+        android:text="@string/dog_life_span"
         android:textSize="16sp"
         android:paddingTop="4dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewWeight"
+        app:layout_constraintTop_toBottomOf="@id/textViewTemperament"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
