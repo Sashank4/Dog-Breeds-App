@@ -31,7 +31,6 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
     private ProgressBar progressBar;
     private ConstraintLayout noInternetLayout;
     private Button tryAgainButton;
-    private View overlayView;
 
     public DogBreedListFragment() {
         // Required empty public constructor
@@ -47,7 +46,6 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
         recyclerView = view.findViewById(R.id.dogBreedListRecyclerView);
         noInternetLayout = view.findViewById(R.id.noInternetLayout);
         tryAgainButton = view.findViewById(R.id.tryAgainButton);
-        overlayView = view.findViewById(R.id.overlay_view); // Initialize overlay view
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -101,17 +99,11 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
 
     // On dog breed click, navigate to the details screen
     public void onDogBreedClick(DogBreed dogBreed) {
-        // Show the overlay view to block interactions
-//        if (overlayView != null) {
-//            overlayView.setVisibility(View.VISIBLE);
-//            overlayView.setOnTouchListener((v, event) -> true); // Intercept all touch events
-//        }
-
         // Add the details fragment
         DogBreedDetailsFragment detailsFragment = DogBreedDetailsFragment.newInstance(dogBreed);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, detailsFragment)
-                .addToBackStack("DogBreedListFragment") // So the user can go back
+                .add(R.id.fragment_container, detailsFragment, "DogBreedListFragment")
+                .addToBackStack(null) // So the user can go back
                 .commit();
     }
 }

@@ -12,4 +12,9 @@
     <string name="dog_origin">Origin</string>
     <string name="dog_temparment">Temparment</string>
     <string name="dog_life_span">Life Span</string>
+    <string name="breed_text">Breed</string>
+    <string name="default_dog_breed_group_text">Belongs to</string>
+    <string name="default_dog_bred_for_text">Breed For</string>
+    <string name="default_dog_temparment_text">Main characteristics are</string>
+    <string name="default_dog_life_span_text">Lives in the range of</string>
 </resources>

@@ -21,7 +21,6 @@ public class DogBreedDetailsFragment extends Fragment implements DogBreedDetailV
     private TextView nameTextView, breedGroupTextView, temparmentTextView,lifeSpanTextView, breedForTextView;
     private DogBreedDetailPresenter presenter;
 
-
     // To receive the DogBreed object
     private static final String DOG_BREED_KEY = "dogBreed";
 
@@ -71,10 +70,10 @@ public class DogBreedDetailsFragment extends Fragment implements DogBreedDetailV
     public void displayDogBreedDetails(DogBreed dogBreed) {
         // Display the dog breed details
         nameTextView.setText(dogBreed.getName());
-        breedGroupTextView.setText("Related to " + dogBreed.getBreedGroup() + " Breed");
-        temparmentTextView.setText("Main characteristics are " + dogBreed.getTemperament());
-        lifeSpanTextView.setText("Lives in the range of " + dogBreed.getLifeSpan());
-        breedForTextView.setText("Best for " + dogBreed.getBreedFor());
+        breedGroupTextView.setText(getString(R.string.default_dog_breed_group_text) + " " + dogBreed.getBreedGroup() + " " + getString(R.string.breed_text) );
+        temparmentTextView.setText(getString(R.string.default_dog_temparment_text) + " " +dogBreed.getTemperament());
+        lifeSpanTextView.setText(getString(R.string.default_dog_life_span_text) + " " +dogBreed.getLifeSpan());
+        breedForTextView.setText(getString(R.string.default_dog_bred_for_text) + " " +dogBreed.getBreedFor());
 
         Glide.with(getContext()).load(dogBreed.getImage()).into(imageView);
     }
