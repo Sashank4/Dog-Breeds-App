@@ -1,6 +1,5 @@
 package com.example.dogbreeds.view;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +31,8 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
     private ProgressBar progressBar;
     private ConstraintLayout noInternetLayout;
     private Button tryAgainButton;
+    private View overlayView;
+
     public DogBreedListFragment() {
         // Required empty public constructor
     }
@@ -46,11 +47,14 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
         recyclerView = view.findViewById(R.id.dogBreedListRecyclerView);
         noInternetLayout = view.findViewById(R.id.noInternetLayout);
         tryAgainButton = view.findViewById(R.id.tryAgainButton);
+        overlayView = view.findViewById(R.id.overlay_view); // Initialize overlay view
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // setup toolbar
+        // Setup toolbar
         Toolbar toolbar = view.findViewById(R.id.show_dog_breeds_toolbar);
         toolbar.setTitle(getString(R.string.dog_breed_screen_title));
+
         // Setup Retrofit
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://raw.githubusercontent.com/DevTides/DogsApi/master/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -60,12 +64,13 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
         DogBreedModel model = new DogBreedModel(retrofit);
         presenter = new DogViewListPresenter(model, this);
 
-        // try again CTA listener
+        // Try again CTA listener
         tryAgainButton.setOnClickListener(v -> {
             noInternetLayout.setVisibility(View.GONE);
             presenter.loadDogBreeds(); // Retry API call
             recyclerView.setVisibility(View.VISIBLE);
         });
+
         // Load data
         presenter.loadDogBreeds();
 
@@ -95,20 +100,18 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
     }
 
     // On dog breed click, navigate to the details screen
-    private void onDogBreedClick(DogBreed dogBreed) {
-        // Replace the fragment dynamically with DogBreedDetailsFragment
-        DogBreedDetailsFragment detailsFragment = DogBreedDetailsFragment.newInstance(dogBreed);
-
-//        View overlayView = getView().findViewById(R.id.overlay_view);
+    public void onDogBreedClick(DogBreed dogBreed) {
+        // Show the overlay view to block interactions
 //        if (overlayView != null) {
 //            overlayView.setVisibility(View.VISIBLE);
 //            overlayView.setOnTouchListener((v, event) -> true); // Intercept all touch events
 //        }
-        // Begin a fragment transaction to switch to the details fragment
+
+        // Add the details fragment
+        DogBreedDetailsFragment detailsFragment = DogBreedDetailsFragment.newInstance(dogBreed);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, detailsFragment)
                 .addToBackStack("DogBreedListFragment") // So the user can go back
                 .commit();
     }
-
 }

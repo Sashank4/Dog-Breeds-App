@@ -9,4 +9,5 @@ public interface DogBreedListView {
     void hideLoading();
     void displayDogBreeds(List<DogBreed> dogBreeds);
     void showError(String message);
+    void onDogBreedClick(DogBreed dogBreed);
 }
