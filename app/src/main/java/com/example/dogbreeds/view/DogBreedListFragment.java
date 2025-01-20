@@ -110,7 +110,7 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
         // Add the details fragment
         DogBreedDetailsFragment detailsFragment = DogBreedDetailsFragment.newInstance(dogBreed);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, detailsFragment)
+                .add(R.id.fragment_container, detailsFragment)
                 .addToBackStack("DogBreedListFragment") // So the user can go back
                 .commit();
     }
