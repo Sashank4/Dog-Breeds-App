@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.dogbreeds.adapter.DogBreedAdapter;
 import com.example.dogbreeds.presenter.DogViewListPresenter;
 import com.example.dogbreeds.R;
@@ -60,6 +59,8 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
         // Instantiate the model and presenter
         DogBreedModel model = new DogBreedModel(retrofit);
         presenter = new DogViewListPresenter(model, this);
+
+        // try again CTA listener
         tryAgainButton.setOnClickListener(v -> {
             noInternetLayout.setVisibility(View.GONE);
             presenter.loadDogBreeds(); // Retry API call
@@ -91,18 +92,23 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
     public void showError(String message) {
         noInternetLayout.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.GONE);
-//        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     // On dog breed click, navigate to the details screen
     private void onDogBreedClick(DogBreed dogBreed) {
         // Replace the fragment dynamically with DogBreedDetailsFragment
         DogBreedDetailsFragment detailsFragment = DogBreedDetailsFragment.newInstance(dogBreed);
+
+//        View overlayView = getView().findViewById(R.id.overlay_view);
+//        if (overlayView != null) {
+//            overlayView.setVisibility(View.VISIBLE);
+//            overlayView.setOnTouchListener((v, event) -> true); // Intercept all touch events
+//        }
         // Begin a fragment transaction to switch to the details fragment
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, detailsFragment)
-                .addToBackStack(null) // So the user can go back
+                .addToBackStack("DogBreedListFragment") // So the user can go back
                 .commit();
-
     }
+
 }

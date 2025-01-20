@@ -2,6 +2,7 @@ package com.example.dogbreeds.view;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,8 +53,9 @@ public class DogBreedDetailsFragment extends Fragment implements DogBreedDetailV
 
         Toolbar toolbar = view.findViewById(R.id.dog_breed_details_toolbar);
         toolbar.setTitle(getString(R.string.breed_description_screen_title));
+
         toolbar.setNavigationOnClickListener(v -> {
-            requireActivity().getSupportFragmentManager().popBackStack(); // Just navigate back
+            requireActivity().getSupportFragmentManager().popBackStack();
         });
 
         // Get the DogBreed object passed via arguments
