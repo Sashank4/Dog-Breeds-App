@@ -16,6 +16,8 @@ import com.example.dogbreeds.presenter.DogBreedDetailPresenter;
 import com.example.dogbreeds.R;
 import com.example.dogbreeds.model.DogBreed;
 
+
+
 public class DogBreedDetailsFragment extends Fragment implements DogBreedDetailView {
     private ImageView imageView;
     private TextView nameTextView, breedGroupTextView, temparmentTextView,lifeSpanTextView, breedForTextView;
@@ -28,6 +30,7 @@ public class DogBreedDetailsFragment extends Fragment implements DogBreedDetailV
         // Required empty public constructor
     }
 
+    //These kind of methods are called Factory methods
     public static DogBreedDetailsFragment newInstance(DogBreed dogBreed) {
         DogBreedDetailsFragment fragment = new DogBreedDetailsFragment();
         Bundle args = new Bundle();
@@ -60,7 +63,7 @@ public class DogBreedDetailsFragment extends Fragment implements DogBreedDetailV
         if (getArguments() != null) {
             DogBreed dogBreed = (DogBreed) getArguments().getSerializable(DOG_BREED_KEY);
             presenter = new DogBreedDetailPresenter(this);
-            presenter.loadDogBreedDetails(dogBreed);
+            displayDogBreedDetails(dogBreed);
         }
         return view;
     }

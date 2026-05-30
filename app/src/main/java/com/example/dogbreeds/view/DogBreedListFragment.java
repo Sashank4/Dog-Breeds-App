@@ -17,11 +17,12 @@ import com.example.dogbreeds.adapter.DogBreedAdapter;
 import com.example.dogbreeds.presenter.DogViewListPresenter;
 import com.example.dogbreeds.R;
 import com.example.dogbreeds.model.DogBreed;
-import com.example.dogbreeds.model.DogBreedModel;
+import com.example.dogbreeds.model.DogBreedRepository;
 
 import java.util.List;
 
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DogBreedListFragment extends Fragment implements DogBreedListView {
@@ -43,7 +44,7 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
         View view = inflater.inflate(R.layout.fragment_dog_breed_list, container, false);
 
         progressBar = view.findViewById(R.id.progressBar);
-        recyclerView = view.findViewById(R.id.dogBreedListRecyclerView);
+        recyclerView = view.findViewById(R.id.dogBreedListRecyclerView2);
         noInternetLayout = view.findViewById(R.id.noInternetLayout);
         tryAgainButton = view.findViewById(R.id.tryAgainButton);
 
@@ -56,11 +57,14 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
         // Setup Retrofit
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://raw.githubusercontent.com/DevTides/DogsApi/master/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
 
         // Instantiate the model and presenter
-        DogBreedModel model = new DogBreedModel(retrofit);
+        DogBreedRepository model = new DogBreedRepository(retrofit);
         presenter = new DogViewListPresenter(model, this);
+
+
 
         // Try again CTA listener
         tryAgainButton.setOnClickListener(v -> {
@@ -74,6 +78,8 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
 
         return view;
     }
+
+
 
     @Override
     public void showLoading() {
@@ -98,12 +104,13 @@ public class DogBreedListFragment extends Fragment implements DogBreedListView {
     }
 
     // On dog breed click, navigate to the details screen
+    @Override
     public void onDogBreedClick(DogBreed dogBreed) {
         // Add the details fragment
         DogBreedDetailsFragment detailsFragment = DogBreedDetailsFragment.newInstance(dogBreed);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, detailsFragment, "DogBreedListFragment")
-                .addToBackStack(null) // So the user can go back
+                .add(R.id.fragment_container, detailsFragment)
+                .addToBackStack(null)
                 .commit();
     }
 }

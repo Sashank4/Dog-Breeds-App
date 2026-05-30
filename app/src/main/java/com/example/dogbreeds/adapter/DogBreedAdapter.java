@@ -1,5 +1,6 @@
 package com.example.dogbreeds.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,15 +30,18 @@ public class DogBreedAdapter extends RecyclerView.Adapter<DogBreedAdapter.DogBre
     @NonNull
     @Override
     public DogBreedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.e("me", "in create view holder ");
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.dog_breed_card, parent, false);
         return new DogBreedViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull DogBreedViewHolder holder, int position) {
         DogBreed dogBreed = dogBreedList.get(position);
         holder.bind(dogBreed);
+        Log.e("me", "in bind view holder " + position);
     }
 
     @Override

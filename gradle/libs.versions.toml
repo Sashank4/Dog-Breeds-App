@@ -9,6 +9,10 @@ activity = "1.9.3"
 constraintlayout = "2.2.0"
 retrofit = "2.9.0"
 glide = "4.15.1"
+conductor = "3.0.0"
+rxjava = "3.1.10"
+rxandroid = "3.0.0"
+rxjava3Adapter = "3.0.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -22,6 +26,10 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version = "2.9.0" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glideCompiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+conductor = { module = "com.bluelinelabs:conductor-mvp", version.ref = "conductor" }
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+retrofit-rxjava3-adapter = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "retrofit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

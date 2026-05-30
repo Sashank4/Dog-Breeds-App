@@ -18,7 +18,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -44,8 +44,8 @@ dependencies {
     implementation(libs.retrofit.gson)
     implementation(libs.glide)
     annotationProcessor(libs.glideCompiler)
-
-
-
+    implementation(libs.rxjava)
+    implementation(libs.rxandroid)
+    implementation (libs.retrofit.rxjava3.adapter)
 
 }
